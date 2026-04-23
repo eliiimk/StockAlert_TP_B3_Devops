@@ -3,10 +3,10 @@ name: CI/CD StockAlert
 on:
   push:
     branches: [main, staging]
+    tags:
+      - "v*"
   pull_request:
     branches: [main]
-  tags:
-    - "v*"
 
 jobs:
 
@@ -101,6 +101,6 @@ jobs:
     steps:
       - name: Déployer en staging
         run: |
-          echo "🔵 Déploiement en staging"
+          echo "Déploiement en staging"
           echo "Image : ${{ secrets.DOCKER_USERNAME }}/stockalert:staging"
-          echo "✅ Staging mis à jour"
+          echo "Staging mis à jour"
